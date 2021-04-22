@@ -3,7 +3,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-ß</head>
+</head>
 
 <style>
     table,
@@ -23,9 +23,13 @@
 
     <h1>Hellway</h1>
     <a href="https://github.com/opbokel/hellway">Full documentation and source code (GitHub)</a>
+    <BR><BR>
+    <a href="https://atariage.com/forums/topic/316402-hellway-an-atari-2600-homebrew-with-love/">Latest Updates
+        (AtariAge)</a>
+
 
     <BR><BR>
-    <h3>Game Mode Wizard (under construction)</h3>
+    <h3>Game Mode Wizard</h3>
     <p>Select the options you want, and it will calculate the correct game mode (Use game select while the game is not
         running to change the mode):</p>
 
@@ -35,35 +39,63 @@
             <th>-- 1 --</th>
         </tr>
         <tr>
-            <td style="background-color:lightgreen;width:50%"><b>Cycle Levels: </b>The game will start at the level defined by the
+            <td style="background-color:lightgreen;width:50%" id="00" onclick="selectGameModeOption(0,0)"><b>Cycle Levels:
+                </b>The game will start at the level defined by the
                 difficulty switches and change every checkpoint.</td>
-            <td style="width:50%"><b>Fixed Level: </b>The game will start at the level defined by the difficulty switches and not change.
+            <td style="width:50%" onclick="selectGameModeOption(0,1)" id="01"><b>Fixed Level: </b>The game will start at the
+                level defined by the difficulty switches and not change.
             </td>
         </tr>
         <tr>
-            <td style="background-color:lightgreen;width:50%"><b>Constant Traffic Pattern: </b>Every time the game start, the same
+            <td style="background-color:lightgreen;width:50%" onclick="selectGameModeOption(1,0)" id="10"><b>Constant Traffic
+                    Pattern: </b>Every time the game start, the same
                 pattern of cars is used. This gives you a full consistent experience and allows memorization to some
                 extent.</td>
-            <td style="width:50%"><b>Random Traffic Pattern: </b>Every time the game start, a different pattern of cars is used. This
+            <td style="width:50%" onclick="selectGameModeOption(1,1)" id="11"><b>Random Traffic Pattern: </b>Every time the game
+                start, a different pattern of cars is used. This
                 removes the memorization factor and gives a slightly different experience every time.</td>
         </tr>
         <tr>
-            <td style="background-color:lightgreen;width:50%"><b>Default Speed Difference (Lines): </b>The speed difference
+            <td style="background-color:lightgreen;width:50%" onclick="selectGameModeOption(2,0)" id="20"><b>Default Speed
+                    Difference (Lines): </b>The speed difference
                 between traffic lines is balanced.</td>
-            <td style="width:50%"><b>High Speed Difference (Lines): </b>The speed difference between traffic lines is high. This makes the
+            <td style="width:50%" onclick="selectGameModeOption(2,1)" id="21"><b>High Speed Difference (Lines): </b>The speed
+                difference between traffic lines is high. This makes the
                 game harder, overtake windows are shorter and changing lines more difficulty.</td>
         </tr>
         <tr>
-            <td style="background-color:lightgreen;width:50%"><b>Predefined Traffic Intensity: </b>Each level has it predefined,
-                taylor made traffic intensity</td>
-            <td style="width:50%"><b>Random Traffic Intensity: </b>The traffic intensity varies randomly every checkpoint. This makes
+            <td style="background-color:lightgreen;width:50%" onclick="selectGameModeOption(3,0)" id="30"><b>Predefined Traffic
+                    Intensity: </b>Each level has it predefined,
+                taylor made traffic intensity.</td>
+            <td style="width:50%" onclick="selectGameModeOption(3,1)" id="31"><b>Random Traffic Intensity: </b>The traffic
+                intensity varies randomly every checkpoint. This makes
                 every play session to vary widely and is not suitable from competitive play. It does not affect each
                 level checkpoint time.</td>
         </tr>
     </table>
+    <h2 style="color:green">Game Mode: <span id="modeBinary">0000</span> = <span id="modeHexa">0</span></h2>
 
     <script>
+        function selectGameModeOption(bitIndex, bitValue) {
+            document.getElementById(bitIndex + "" + 0).style.backgroundColor = null;
+            document.getElementById(bitIndex + "" + 1).style.backgroundColor = null;
+            document.getElementById(bitIndex + "" + bitValue).style.backgroundColor = "lightgreen";
 
+            let d0 = document.getElementById(0 + "" + 1).style.backgroundColor == "" ? 0 : 1;
+            let d1 = document.getElementById(1 + "" + 1).style.backgroundColor == "" ? 0 : 1;
+            let d2 = document.getElementById(2 + "" + 1).style.backgroundColor == "" ? 0 : 1;
+            let d3 = document.getElementById(3 + "" + 1).style.backgroundColor == "" ? 0 : 1;
+
+            let binary = d3 + "" + d2 + "" + d1 + "" + d0;
+
+            let hexa = parseInt(binary, 2).toString(16).toUpperCase();
+            
+            document.getElementById("modeBinary").textContent = binary;
+
+            document.getElementById("modeHexa").textContent = hexa;
+
+
+        }
     </script>
 </body>
 
