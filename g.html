@@ -11,11 +11,11 @@
     td {
         border: 2px solid black;
         border-collapse: collapse;
+        padding: 6px;
     }
 
-    th,
-    td {
-        padding: 6px;
+    th {
+        background-color: lightgray;
     }
 </style>
 
@@ -35,45 +35,193 @@
 
     <table style="width:100%">
         <tr>
-            <th>-- 0 --</th>
-            <th>-- 1 --</th>
+            <th style="width:50%">-- 0 --</th>
+            <th style="width:50%">-- 1 --</th>
         </tr>
         <tr>
-            <td style="background-color:lightgreen;width:50%" id="00" onclick="selectGameModeOption(0,0)"><b>Cycle Levels:
+            <td style="background-color:lightgreen" id="00" onclick="selectGameModeOption(0,0)"><b>Cycle
+                    Levels:
                 </b>The game will start at the level defined by the
                 difficulty switches and change every checkpoint.</td>
-            <td style="width:50%" onclick="selectGameModeOption(0,1)" id="01"><b>Fixed Level: </b>The game will start at the
+            <td onclick="selectGameModeOption(0,1)" id="01"><b>Fixed Level: </b>The game will start at
+                the
                 level defined by the difficulty switches and not change.
             </td>
         </tr>
         <tr>
-            <td style="background-color:lightgreen;width:50%" onclick="selectGameModeOption(1,0)" id="10"><b>Constant Traffic
+            <td style="background-color:lightgreen" onclick="selectGameModeOption(1,0)" id="10"><b>Constant
+                    Traffic
                     Pattern: </b>Every time the game start, the same
                 pattern of cars is used. This gives you a full consistent experience and allows memorization to some
                 extent.</td>
-            <td style="width:50%" onclick="selectGameModeOption(1,1)" id="11"><b>Random Traffic Pattern: </b>Every time the game
+            <td style="width:50%" onclick="selectGameModeOption(1,1)" id="11"><b>Random Traffic Pattern: </b>Every time
+                the game
                 start, a different pattern of cars is used. This
                 removes the memorization factor and gives a slightly different experience every time.</td>
         </tr>
         <tr>
-            <td style="background-color:lightgreen;width:50%" onclick="selectGameModeOption(2,0)" id="20"><b>Default Speed
+            <td style="background-color:lightgreen" onclick="selectGameModeOption(2,0)" id="20"><b>Default
+                    Speed
                     Difference (Lines): </b>The speed difference
                 between traffic lines is balanced.</td>
-            <td style="width:50%" onclick="selectGameModeOption(2,1)" id="21"><b>High Speed Difference (Lines): </b>The speed
+            <td onclick="selectGameModeOption(2,1)" id="21"><b>High Speed Difference (Lines): </b>The
+                speed
                 difference between traffic lines is high. This makes the
                 game harder, overtake windows are shorter and changing lines more difficulty.</td>
         </tr>
         <tr>
-            <td style="background-color:lightgreen;width:50%" onclick="selectGameModeOption(3,0)" id="30"><b>Predefined Traffic
+            <td style="background-color:lightgreen" onclick="selectGameModeOption(3,0)" id="30"><b>Predefined
+                    Traffic
                     Intensity: </b>Each level has it predefined,
                 taylor made traffic intensity.</td>
-            <td style="width:50%" onclick="selectGameModeOption(3,1)" id="31"><b>Random Traffic Intensity: </b>The traffic
+            <td onclick="selectGameModeOption(3,1)" id="31"><b>Random Traffic Intensity: </b>The
+                traffic
                 intensity varies randomly every checkpoint. This makes
                 every play session to vary widely and is not suitable from competitive play. It does not affect each
                 level checkpoint time.</td>
         </tr>
     </table>
     <h2 style="color:green">Game Mode: <span id="modeBinary">0000</span> = <span id="modeHexa">0</span></h2>
+
+    <hr>
+
+    <h3>Difficulty Switches Table</h3>
+    <p>A quick reference of the difficulty switches position and the starting level. Use reset to apply.</p>
+
+    <table style="width:100%">
+        <tr>
+            <th style="width:20%">Color</th>
+            <th style="width:20%">Intensity</th>
+            <th style="width:20%">Ckpt. Time</th>
+            <th style="width:20%">Switch 1</th>
+            <th style="width:20%">Switch 2</th>
+        </tr>
+        <tr style="background-color:mediumseagreen">
+            <td>Green</td>
+            <td>Light</td>
+            <td>29s</td>
+            <td>B</td>
+            <td>B</td>
+        </tr>
+        <tr style="background-color:orangered">
+            <td>Red</td>
+            <td>Regular</td>
+            <td>34s</td>
+            <td>B</td>
+            <td>A</td>
+        </tr>
+        <tr style="background-color:mediumpurple">
+            <td>Purple</td>
+            <td>Intense</td>
+            <td>39s</td>
+            <td>A</td>
+            <td>B</td>
+        </tr>
+        <tr style="background-color:white">
+            <td>White</td>
+            <td>Rush Hour</td>
+            <td>44s</td>
+            <td>A</td>
+            <td>A</td>
+        </tr>
+    </table>
+
+    <br>
+    <hr>
+    <h3>Cars Specs Table</h3>
+    <p>How each car compares, use the reset switch to change cars.</p>
+
+    <table style="width:100%">
+        <tr>
+            <th style="width:20%">Car</th>
+            <th style="width:20%">Accel.</th>
+            <th style="width:20%">Top Speed</th>
+            <th style="width:20%">Glide</th>
+            <th style="width:20%">Handl.</th>
+        </tr>
+        <tr>
+            <td style="background-color:black"><img src="car0.png" alt="Car with spoiler" width="50" height="50"></td>
+            <td style="background-color:gold"><b> * * </b></td>
+            <td style="background-color:mediumseagreen"><b> * * * </b></td>
+            <td style="background-color:gold"><b> * *</b> </td>
+            <td style="background-color:mediumseagreen"><b> * * * </b></td>
+        </tr>
+        <tr>
+            <td style="background-color:black"><img src="car1.png" alt="Hatchback" width="50" height="50"></td>
+            <td style="background-color:mediumseagreen"><b> * * * </b></td>
+            <td style="background-color:gold"><b> * * </b></td>
+            <td style="background-color:gold"><b> * * </b></td>
+            <td style="background-color:mediumseagreen"><b> * * * </b></td>
+        </tr>
+        <tr>
+            <td style="background-color:black"><img src="car2.png" alt="Sedan" width="50" height="50"></td>
+            <td style="background-color:orangered"><b> * </b></td>
+            <td style="background-color:mediumseagreen"><b> * * * </b></td>
+            <td style="background-color:mediumseagreen"><b> * * * </b></td>
+            <td style="background-color:mediumseagreen"><b> * * *</b></td>
+        </tr>
+        <tr>
+            <td style="background-color:black"><img src="car3.png" alt="Dragster" width="50" height="50"></td>
+            <td style="background-color:mediumseagreen"><b> * * * </b></td>
+            <td style="background-color:mediumseagreen"><b> * * *</b></td>
+            <td style="background-color:gold"><b> * * </b></td>
+            <td style="background-color:orangered"><b> * </b></td>
+        </tr>
+    </table>
+
+    <br>
+    <hr>
+    <h3>Controllers</h3>
+    <p>A quick reference the controllers and switches: </p>
+    <p style="color:crimson">Important: Breaking and accelerating at the same time breaks with half intensity.</p>
+
+    <table style="width:100%">
+        <tr>
+            <th style="width:33.33%">Input</th>
+            <th style="width:33.33%">Game Paused</th>
+            <th style="width:33.33%">Game Running</th>
+        </tr>
+        <td>Game Select Switch</td>
+        <td>Changes game mode / Dismisses the QR code</td>
+        <td>Changes text flickering mode</td>
+        <tr>
+            <td>Reset</td>
+            <td>Change cars / Apply difficulty switches</td>
+            <td>Restarts the current game</td>
+        </tr>
+        <tr>
+            <td>Joystick Direction</td>
+            <td>Changes the game border</td>
+            <td>Left, Right: Turns the car / Up: accelerates / Down: Break</td>
+        </tr>
+        <tr>
+            <td>Fire Button</td>
+            <td>Starts the game / Dismisses the QR code</td>
+            <td>Accelerate / Light break (+ down) / Hides game over screen </td>
+        </tr>
+        <tr>
+            <td>Color Switch</td>
+            <td>Selects between dark and regular mode.</td>
+            <td>Selects between dark and regular mode.</td>
+        </tr>
+    </table>
+
+
+    <br>
+    <hr>
+    <h3>Game Over Screen</h3>
+    <p>Gives you a detailed statistics of the game session:</p>
+    <ul style="text-align: left;">
+        <li>S: Score / Distance in decimal.</li>
+        <li>T: The total in seconds.</li>
+        <li>G: Time gliding in seconds.</li>
+        <li>H: The number of hits.</li>
+        <li>C: Total number of checkpoints.</li>
+        <li>Unique Identifier: Game Mode (0 to F), Car Type (0 to 3), D. Switch 1 (B - A), D. Switch 2 (B - A), | Game
+            Version. Example: E2AB|1.42</li>
+    </ul>
+
+    <br>
 
     <script>
         function selectGameModeOption(bitIndex, bitValue) {
@@ -89,12 +237,10 @@
             let binary = d3 + "" + d2 + "" + d1 + "" + d0;
 
             let hexa = parseInt(binary, 2).toString(16).toUpperCase();
-            
+
             document.getElementById("modeBinary").textContent = binary;
 
             document.getElementById("modeHexa").textContent = hexa;
-
-
         }
     </script>
 </body>
