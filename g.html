@@ -33,6 +33,34 @@
 
 
     <BR><BR><hr>
+    <h3>Tip of the Day</h3>
+    
+    <p hidden id="tip-1">Keeping momentum is more important than reaching top speeds.</p>
+    <p hidden id="tip-2">Car 0 is the most balanced car.</p>
+    <p hidden id="tip-3">Car 1 is the best for beginners, it recovers fast from crashes and a smaller top speed makes it easier to play. </p>
+    <p hidden id="tip-4">Car 2 is all about the overtime and mastering gliding, he is the worst car until the time is over. Find space to glide and try not to crash right before gliding.</p>
+    <p hidden id="tip-5">Car 3 is difficult to handle, but recovers fast from crashes and is perfect after checkpoints, allowing you to be bolder.</p>
+    <p hidden id="tip-6">Try the different parallax modes and what works best for you (D pad before start).</p>
+    <p hidden id="tip-7">Try dark mode and see how well it works on your TV and your eyes (At any time, BW switch).</p>
+    <p hidden id="tip-8">Before the checkpoint, try to accelerate to cross it with high speed and take advantage of the checkpoint invincibility (+- 4.5 seconds), but if you feel unsafe, it is better not to crash.</p>
+    <p hidden id="tip-9">On random traffic intensity modes, more traffic makes the game easier, since it only affects the checkpoint times.</p>
+    <p hidden id="tip-10">Mastering gliding takes time, but is essential for high scores. Try to find open spaces and get some speed, but watch out not to crash right before it.</p>
+    <p hidden id="tip-11">Suggestions, feedback or some key advice I can put in this section? Feel free to reach Octavio Pinho Bokel on AtariAge.</p>
+    <p hidden id="tip-12">The plus cart version of the game supports online score submission (and is amazing!!!!).
+    <p hidden id="tip-13">This game is easy to pick up and play, but hard to master. But once you do, it is very rewarding (at least for me that created it :) )</p>
+    <p hidden id="tip-14">Mastering brakes is very important! The breaks are tuned to be stronger at high speeds, and less on low speeds, giving a more fine tuned control.</p>
+    <p hidden id="tip-15">Accelerating and braking at the same time breaks with less intensity. This is perfect when you are stuck in traffic and want some fine grained control of your speed.</p>
+    <p hidden id="tip-16">You cannot crash on the sides!</p>
+    <p hidden id="tip-17">If you cannot read the QR code, try dark mode with its reversed colors.</p>
+    <p hidden id="tip-18">The statistics screen gives you some details that can help you improve your gameplay.</p>
+    <p hidden id="tip-19">The game select switch will make the score stop flickering, alternating the side every +- 4.5 seconds. Useful for screenshots.</p>
+    <p hidden id="tip-20">Find your rhythm, push harder once you get comfortable.</p>
+    <p hidden id="tip-21">If you crash, consider pulling the car to the right while invincible. It might not be enough time to regain speed on the faster lanes.</p>
+    <p hidden id="tip-22">If you are stuck in traffic, try to match the speed of the faster lane and wait for a proper opening.</p>
+    <p hidden id="tip-23">Patience is key in this game. Wait for the correct moments to overtake.</p>
+    <p hidden id="tip-24">High speed difference in lanes makes the game harder, since overtake openings appear and disappear much faster.</p>
+
+    <hr>
         
     <h3>Game Mode Wizard</h3>
     <p>Select the options you want, and it will calculate the correct game mode (Use game select while the game is not
@@ -60,7 +88,7 @@
             <td style="background-color:lightgreen" onclick="selectGameModeOption(2,0)" id="20"><b>Default
                     Speed
                     Difference (Lines): </b>The speed difference between traffic lines is balanced.</td>
-            <td onclick="selectGameModeOption(2,1)" id="21"><b>High Speed Difference (Lines): </b>The speed difference between traffic lines is high. This makes the game harder, overtake windows are shorter and changing lines is more difficult.</td>
+            <td onclick="selectGameModeOption(2,1)" id="21"><b>High Speed Difference (Lanes): </b>The speed difference between traffic lines is high. This makes the game harder, overtake windows are shorter and changing lines is more difficult.</td>
         </tr>
         <tr>
             <td style="background-color:lightgreen" onclick="selectGameModeOption(3,0)" id="30"><b>Predefined
@@ -230,6 +258,13 @@
 
             document.getElementById("modeHexa").textContent = hexa;
         }
+
+        function randomTip(){
+            let tipId = "tip-" + (Math.floor(Math.random() * 23) + 1);
+            document.getElementById(tipId).removeAttribute("hidden");
+        };
+
+        randomTip()
     </script>
 </body>
 
